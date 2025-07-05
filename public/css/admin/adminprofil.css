@@ -1,0 +1,80 @@
+/* Container utama */
+.profile-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 25px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Judul */
+.profile-container h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
+}
+
+/* Card */
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Avatar */
+.profile-avatar img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #007bff;
+    margin-bottom: 15px;
+}
+
+/* Info */
+.profile-info {
+    text-align: center;
+}
+
+.profile-info p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.profile-info strong {
+    color: #222;
+}
+
+/* Tombol Kembali */
+.btn-back {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.btn-back:hover {
+    background: #0056b3;
+}
+
+/* Responsif */
+@media (min-width: 600px) {
+    .profile-card {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+
+    .profile-avatar {
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+}

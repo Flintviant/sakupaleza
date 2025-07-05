@@ -1,0 +1,238 @@
+/* Reset dan dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    width: 100%;
+    background: #f9f9f9;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    /* background-color: #343a40; */
+    color: black;
+    padding: 20px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    /* transition: color 0.3s; */
+}
+
+.nav-links li a:hover {
+    color: #ffc107;
+}
+
+/* Highlight Berita */
+.highlight-news {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    gap: 30px;
+    background-color: #f9f9f9;
+}
+
+.highlight-news img {
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.highlight-text {
+    max-width: 500px;
+}
+
+.highlight-text h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.highlight-text p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.button {
+    background-color: #ffc107;
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background-color: #e0a800;
+}
+
+/* Berita Grid */
+.berita-grid {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.berita-grid h3 {
+    font-size: 26px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.card {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-body h4 {
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.card-body p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.read-more {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .highlight-news {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 70px;
+        background: #343a40;
+        padding: 20px;
+        width: 200px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        background-color: white;
+    }
+}
+
+/* Untuk layar kecil, pastikan nav-link menutup layar penuh */
+@media (max-width: 768px) {
+  .nav-links {
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 10px 0;
+    background: #fff;
+  }
+
+  .nav-links li a {
+    color: #333;
+    padding: 10px 20px;
+    display: block;
+  }
+
+  .hamburger span {
+    background-color: #333;
+  }
+}
+
+/* Untuk layar sangat kecil (hp) */
+@media (max-width: 480px) {
+  .highlight-text h2 {
+    font-size: 22px;
+  }
+
+  .highlight-text p {
+    font-size: 14px;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .card-body h4 {
+    font-size: 16px;
+  }
+
+  .card-body p {
+    font-size: 13px;
+  }
+}

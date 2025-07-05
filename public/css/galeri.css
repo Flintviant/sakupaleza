@@ -1,0 +1,199 @@
+/* Reset dan font dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    background: #f9f9f9;
+    color: #333;
+}
+
+/* Header */
+header {
+    /* background-color: #343a40; */
+    color: black;
+    padding: 20px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    /* transition: color 0.3s; */
+}
+
+.nav-links li a:hover {
+    color: #ffc107;
+}
+
+.carousel {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.2); */
+}
+
+/* ✅ Atur ukuran gambar agar tidak terlalu panjang */
+.carousel-container img {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* ✅ menjaga proporsi 16:9 */
+    height: auto; /* Gunakan ini agar tinggi proporsional */
+    /* max-height: 500px; Batasi tinggi maksimal gambar */
+    object-fit: cover; /* Pangkas gambar agar rapi */
+    border-radius: 10px;
+}
+
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.prev {
+    left: 0px;
+}
+
+.next {
+    right: 0px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    padding: 60px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        background: #343a40;
+        position: absolute;
+        right: 0;
+        top: 70px;
+        width: 200px;
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        background-color: black;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+}
+
+/* Responsif lebih kecil dari 480px */
+@media (max-width: 480px) {
+  .nav-links {
+    width: 100%;
+    top: 60px;
+  }
+
+  .nav-links li a {
+    color: white;
+    padding: 10px 20px;
+    display: block;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .prev,
+  .next {
+    padding: 8px 12px;
+    font-size: 20px;
+  }
+
+  .card img {
+    height: 150px;
+  }
+}
+
+/* Pastikan hamburger span warnanya kontras saat menu terbuka */
+.nav-links.show ~ .hamburger span {
+  background-color: white;
+}
+
