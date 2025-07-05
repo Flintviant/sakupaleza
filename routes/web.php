@@ -77,17 +77,36 @@ Route::middleware(['auth', 'adminauth'])->group(function () {
     })->name('admin.profile');
 });
 Route::middleware('auth:member')->group(function () {
+    // Halaman daftar pesanan (riwayat)
     Route::get('/order', [OrderController::class, 'index'])->name('order.index');
-    Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
-    Route::get('/order', [OrderController::class, 'create'])->name('order.create');
-    Route::get('/order/{order}/payment', [OrderController::class, 'payment'])->name('order.payment');
-    Route::get('/member/dashboard', [OrderController::class, 'history'])->name('member.dashboard');
 
+    // Halaman form pemesanan
+    Route::get('/order/create', [OrderController::class, 'create'])->name('order.create');
+
+    // Simpan pemesanan
+    // Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
+
+    // Halaman pembayaran untuk 1 order tertentu
+    Route::get('/order/{order}/payment', [OrderController::class, 'payment'])->name('order.payment');
+
+    // Simpan preview pembayaran ke session
+    Route::post('/order/payment/preview', [OrderController::class, 'previewPayment'])->name('order.payment.preview');
+
+    // Tampilkan halaman pembayaran (dengan timer)
+    Route::get('/order/payment', [OrderController::class, 'paymentPage'])->name('order.payment.page');
+
+    // Simpan konfirmasi pembayaran (upload bukti + metode)
+    Route::post('/order/payment/confirm', [OrderController::class, 'confirmPayment'])->name('order.payment.confirm');
+
+    // Setelah pembayaran berhasil
+    Route::get('/order/confirmed/{id}', [OrderController::class, 'confirmed'])->name('order.confirmed');
+
+    // Dashboard member
+    Route::get('/member/dashboard', [OrderController::class, 'history'])->name('member.dashboard');
 });
 
-Route::post('/order/payment/preview', [OrderController::class, 'previewPayment'])->name('order.payment.preview');
-Route::post('/order/payment/confirm', [OrderController::class, 'store'])->name('order.payment.confirm');
-Route::get('/order/payment', [OrderController::class, 'paymentPage'])->name('order.payment.page');
+
+
 
 Route::post('/get-kelurahan', [WilayahController::class, 'getKelurahan'])->name('get.kelurahan');
 
