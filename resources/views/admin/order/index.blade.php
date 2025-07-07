@@ -18,6 +18,7 @@
             <th>Jumlah</th>
             <th>Ongkir</th>
             <th>Grand Total</th>
+            <th>Bukti Bayar</th>
             <th>Status</th>
             <th>Aksi</th>
         </tr>
@@ -38,6 +39,11 @@
                     $grandTotal = ($order->total_harga ?? 0) + ($order->ongkir ?? 0);
                 @endphp
                 Rp {{ number_format($grandTotal, 0, ',', '.') }}
+            </td>
+            <td>
+                <a href="{{ asset('storage/' . $order->bukti_pembayaran) }}" target="_blank">
+                    Lihat Bukti Pembayaran
+                </a>
             </td>
             <td>{{ ucfirst($order->status) }}</td>
             <td>

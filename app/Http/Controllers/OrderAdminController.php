@@ -47,6 +47,7 @@ class OrderAdminController extends Controller
             'alamat' => 'required',
             'produk' => 'required',
             'jumlah' => 'required|integer|min:1',
+            'bukti_pembayaran' => 'required',
             'total_harga' => 'required|numeric',
         ]);
 
@@ -56,6 +57,7 @@ class OrderAdminController extends Controller
             'alamat' => $request->alamat,
             'produk' => $request->produk,
             'jumlah' => $request->jumlah,
+            'bukti_pembayaran' => $request->bukti_pembayaran,
             'total_harga' => $request->total_harga,
             'status' => 'pending',
         ]);

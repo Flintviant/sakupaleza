@@ -18,6 +18,7 @@ class Order extends Model
         'alamat',
         'produk',
         'jumlah',
+        'bukti_pembayaran',
         'total_harga',
         'ongkir',
         'status'

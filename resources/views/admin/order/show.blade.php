@@ -27,6 +27,14 @@
             <td>{{ $order->jumlah }}</td>
         </tr>
         <tr>
+            <th>Bukti Pembayaran</th>
+            <td>
+                <a href="{{ asset('storage/' . $order->bukti_pembayaran) }}" target="_blank">
+                    Lihat Bukti Pembayaran
+                </a>
+            </td>
+        </tr>
+        <tr>
             <th>Total Harga</th>
             <td>Rp {{ number_format($order->total_harga, 0, ',', '.') }}</td>
         </tr>
